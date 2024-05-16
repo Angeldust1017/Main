@@ -1,23 +1,45 @@
-/* Programa: Calcular la devaluación de un automovil por año, teniendo en cuenta la recuperación de 2000 dólares*/
+/* Programa: Ordena 3 números de mayor a menor que sean mayores de 3 y menores de 15*/
+
 #include <stdio.h>
-#include <conio.h>
-#include <math.h>
-#include <stdlib.h>
-#include <locale.h>
 
-int main()
-{
-    int p_car, dev_car, rec_car, ad_car; p_car = 20000, rec_car = 2000;
-    setlocale(LC_ALL,"spanish");
+    void bubbleSort(int nn[], int n) {
+        int i, j, temp;
+        for (i = 0; i < n-1; i++) {
+            for (j = 0; j < n-i-1; j++) {
+                if (nn[j] < nn[j+1]) {
+                    // intercambiar nn[j] y nn[j+1]
+                    temp = nn[j];
+                    nn[j] = nn[j+1];
+                    nn[j+1] = temp;
+                }
+            }
+        }
+    }
 
+    int main() {
+        int nn[3];
+        int n = sizeof(nn)/sizeof(nn[0]);
+        printf("*** Ordenamiento de números ***\n");
+        printf("ingrese 3 números \n que sean mayores de 3 y menores de 15 \n\n");
+        printf("Ingrese el primer numero \n");
+        scanf("%d", &nn[0]);
+        printf("Ingrese el segundo numero \n");
+        scanf("%d", &nn[1]);
+        printf("Ingrese el tercer numero \n");
+        scanf("%d", &nn[2]);
 
-    printf( "\n  El precio del carro es:\n %d dolares", p_car);
-    printf( "\n Ingrese los annos de devaluacion del carro:");
-    scanf("%d",&dev_car);
-    printf("\n El monto de recuperacion del carro es de: %d dolares \n",rec_car);
-ad_car= (p_car-rec_car); ad_car = (ad_car/dev_car);
-    printf("\n El carro se va devaluando: \n %d dolares por anno",ad_car);
-    getch(); /* Pausa */
+           for (int k = 0; k < 3; ++k) {
+             nn[k];
+             printf(" Ingreso datos en el numero %d de: %d \n", k+1, nn[k]);
+           if( nn[k] <= 3 || nn[k] >= 15){
+              printf("ingreso datos incorrectos \n\n");
 
-    return 0;
-}
+             }
+           }
+        bubbleSort(nn, n);
+        printf("Arreglo ordenado: \n");
+        for (int i=0; i < n; i++) {
+            printf("%d ", nn[i]);
+        }
+        return 0;
+    }
